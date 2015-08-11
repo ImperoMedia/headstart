@@ -6,6 +6,10 @@ Feel free to join me in this creation and help get this theme ready for use by a
 
 Included in this Headstart theme are:
 * _S (Underscores Theme)
-* Bootstrap Grids for Sass
-* Animate.css link in header
-* Material Design color pallete in Sass
+* Bootstrap Grids for Sass from nervewax/bootstrap-sass
+* Animate.css link baked into header file
+* Font Awesome CSS stylesheet link baked into header
+* Material Design Sass color pallete
+* Media querie mixins from eduardoboucas/include-media
+
+Out of the box, this theme can use Bootstrap grids, animate.css, material design colors, Font Awesome fonts, simple media query mixins, a bunch of other handy mixins I've found (see mixins-master.scss for updated list) and some handy variables preset to get off and running quickly.
