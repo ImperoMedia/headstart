@@ -3,6 +3,7 @@
 	display: block;
 	float: left;
 	width: 100%;
+	font-family: $sans;
 
 	ul {
 		display: none;
@@ -51,6 +52,8 @@
 	li {
 		float: left;
 		position: relative;
+		padding: 15px;
+		&:first-child {padding-left: 0;}
 
 		&:hover > a,
 		&.focus > a {
