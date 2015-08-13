@@ -1,4 +1,4 @@
-# headstart_theme
+# headstart
 
 This repository includes all parts of the Headstart Themework (Theme/Framework) based off of _S (underscores theme) and includes many additional SCSS files and assets. The goal is to take _S and make it ready for the average developer to jump right in with instead of having to set it up for each project.
 
