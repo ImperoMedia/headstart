@@ -109,22 +109,6 @@ function headstart_widgets_init() {
 add_action( 'widgets_init', 'headstart_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
- */
-function headstart_scripts() {
-	wp_enqueue_style( 'headstart-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'headstart-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'headstart-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'headstart_scripts' );
-
-/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -148,3 +132,25 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/*******************************************
+REGISTER AND ENQUEUE ALL JS AND CSS FOR SITE
+*******************************************/
+function headstart_scripts() {
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+        wp_enqueue_script( 'comment-reply' );
+// REGISTER JS
+    wp_register_script('headstart-navigation', get_template_directory_uri() . '/js/navigation.js');
+    wp_register_script('headstart-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js');
+//REGISTER CSS
+    wp_register_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+    wp_register_style('animate', get_stylesheet_directory_uri().'/css/animate.min.css');
+//ENQUEUE JS
+    wp_enqueue_script('headstart-navigation');
+    wp_enqueue_script('headstart-skip-link-focus-fix');
+//ENQUEUE CSS
+    wp_enqueue_style('font-awesome');
+    wp_enqueue_style('animate');
+}
+    wp_enqueue_style( 'headstart-style', get_stylesheet_uri() );
+    add_action( 'wp_enqueue_scripts', 'headstart_scripts' );
